@@ -216,6 +216,9 @@ function Create-SolrCollectionAlias
 
  .Parameter shardsPerNode
   The maximum number of shards of a collection which can be put on each Solr node.
+
+ .Parameter collectionPrefix
+  The Sitecore instance name prefix put on the beginning of all the collection and alias names.
 #>
 function Configure-SolrCollection
 {
