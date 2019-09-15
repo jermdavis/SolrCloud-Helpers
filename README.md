@@ -26,7 +26,7 @@ what happens:
   created.
 
 `Setup-SingleInstance.ps1` can be run to install a single-node SolrCloud instance on a machine. `Setup-TripleInstance.ps1`
-will set up a three-node SolrCloud instance on a machine. In both cases there are four variables defined at the top of this script
+will set up a three-node SolrCloud instance on a machine. In both cases there are six variables defined at the top of this script
 that you can use to configure it:
 
 * `$targetFolder` - An absolute path to where you want the Zookeeper and Solr files installed to? If this folder does not exist
