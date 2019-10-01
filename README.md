@@ -1,19 +1,32 @@
 # SolrCloud Install Scripts
 
-Want to automate setting up SolrCloud clusters on Windows? This repo has a load of scrpting helpers which can do anything
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Want to automate setting up SolrCloud clusters on Windows? This repo has a load of scripting helpers which can do anything
 from making a test cluster on the current machine, to installing individual nodes for a production cluster. It's a toolkit
 for crafting your own installations, and a quick way to setup a test instance to play around with.
 
 ## Deploying the scripts
 
+Because this is toolkit of (hopefully) useful commandlets that can be used to automate parts of the install process, you need
+some sort of controlling script that defines your overall process. There are a couple of examples I've made myself below,
+but you may want to modify - but maybe you want to make your own from scratch.
 
-Grab the latest release zip, and extract it onto the machine you want to use. The zip includes the script library and the example
-scripts. You can then import the library into your own scripts:
+Either way, you can grab the latest release zip, and extract it somewhere. That will get you both the example scripts
+and a module of commandlets.
+
+The scripts work by importing the module from a child directory, so you can add two lines to your own script to install
+a module to help with `.tar.gz` files and then import the Solr commandlet module:
 
 ```Powershell
 Install-Module "7Zip4Powershell"
 Import-Module ".\SolrCloud-Helpers" -DisableNameChecking
 ```
+
+You could install the commandlet module to your PowerShell modules directory if you preferred - but I found it simpler
+to work like this when deploying quickly onto target servers.
+
+(And yes, I should probably sort out the naming so it doesn't need `-DisableNameChecking` but that's a job for another day)
 
 ## Example scripts
 
