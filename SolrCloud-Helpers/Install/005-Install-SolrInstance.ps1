@@ -44,9 +44,9 @@ function Create-SolrConfig
  
         $cfg = Get-Content "$solrFolder\bin\solr.in.cmd"
         Rename-Item "$solrFolder\bin\solr.in.cmd" "$solrFolder\bin\solr.in.cmd.old"
-        $newCfg = $cfg | % { $_ -replace "REM set SOLR_SSL_KEY_STORE=etc/solr-ssl.keystore.jks", "set SOLR_SSL_KEY_STORE=$certFile" }
+        $newCfg = $cfg | % { $_ -replace "REM set SOLR_SSL_KEY_STORE=etc/solr-ssl.keystore\.(p12|jks)", "set SOLR_SSL_KEY_STORE=$certFile" }
         $newCfg = $newCfg | % { $_ -replace "REM set SOLR_SSL_KEY_STORE_PASSWORD=secret", "set SOLR_SSL_KEY_STORE_PASSWORD=$certPassword" }
-        $newCfg = $newCfg | % { $_ -replace "REM set SOLR_SSL_TRUST_STORE=etc/solr-ssl.keystore.jks", "set SOLR_SSL_TRUST_STORE=$certFile" }
+        $newCfg = $newCfg | % { $_ -replace "REM set SOLR_SSL_TRUST_STORE=etc/solr-ssl.keystore\.(p12|jks)", "set SOLR_SSL_TRUST_STORE=$certFile" }
         $newCfg = $newCfg | % { $_ -replace "REM set SOLR_SSL_TRUST_STORE_PASSWORD=secret", "set SOLR_SSL_TRUST_STORE_PASSWORD=$certPassword" }
         $newCfg = $newCfg | % { $_ -replace "REM set SOLR_HOST=192.168.1.1", "set SOLR_HOST=$solrHost" }
         $newCfg = $newCfg | % { $_ -replace "REM set SOLR_PORT=8983", "set SOLR_PORT=$solrPort" }
